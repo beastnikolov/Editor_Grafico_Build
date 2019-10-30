@@ -10,13 +10,14 @@ import javax.imageio.ImageIO;
 
 public class Viewer extends Canvas {
 	private static final long serialVersionUID = 1L;
-	private String path = "C:\\Users\\Alumnat\\Downloads\\imagen3.jpg";
-	private String[] pathlist = {"C:\\Users\\Alumnat\\Downloads\\imagen1.jpg","C:\\Users\\Alumnat\\Downloads\\imagen2.jpg","C:\\Users\\Alumnat\\Downloads\\imagen3.jpg"};
+	private String path = "C:\\Users\\Alumnat\\Downloads\\imagen4.jpg";
+	private String[] pathlist = {"C:\\Users\\Alumnat\\Downloads\\imagen1.jpg","C:\\Users\\Alumnat\\Downloads\\imagen2.jpg","C:\\Users\\Alumnat\\Downloads\\imagen3.jpg","C:\\Users\\Alumnat\\Downloads\\imagen4.jpg"};
 	private BufferedImage stock_bi;
 	private BufferedImage image_bi;
 	private MyBufferedImage image;
 	@SuppressWarnings("unused")
 	private MyBufferedImage stock;
+	private int contadorArray = 0;
 	
 	public Viewer() {
 		try {
@@ -43,15 +44,19 @@ public class Viewer extends Canvas {
 	}
 	
 	public void newImage() {
-		String newpath = pathlist[new Random().nextInt(pathlist.length)];
-		try {
-			image_bi = ImageIO.read(new File(newpath));
-			stock_bi = ImageIO.read(new File(newpath));
-			image = new MyBufferedImage(stock_bi);
-			stock = new MyBufferedImage(image_bi);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+            String newpath = pathlist[contadorArray];
+            contadorArray++;
+            if (contadorArray == pathlist.length) {
+                contadorArray = 0;
+            }
+            try {
+                image_bi = ImageIO.read(new File(newpath));
+                stock_bi = ImageIO.read(new File(newpath));
+                image = new MyBufferedImage(stock_bi);
+                stock = new MyBufferedImage(image_bi);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 		this.myPaint();
 		
 	}

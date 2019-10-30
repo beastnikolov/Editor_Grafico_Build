@@ -34,7 +34,7 @@ public class ControlPanel extends JPanel{
 
 		this.setLayout(new GridBagLayout());
 		
-		button = new JButton("Random Image");
+		button = new JButton("Next Image");
 		// Estilos
 		button.setBackground(Color.black);
 		button.setForeground(Color.white);
@@ -56,8 +56,7 @@ public class ControlPanel extends JPanel{
 			
 		}); 
 		
-		
-		button = new JButton("   Grayscale  ");
+		button = new JButton("Grayscale");
 		// Estilos
 		button.setBackground(Color.black);
 		button.setForeground(Color.white);
@@ -246,7 +245,7 @@ public class ControlPanel extends JPanel{
 		gbc.gridwidth = 2;
 		this.add(textfield3,gbc);
 
-		label = new JLabel("Divisor de brillo: ");
+		label = new JLabel("Divisor de brillo:");
         label.setForeground(Color.white);
         label.setFont(new Font("MS Gothic", Font.PLAIN, 14));
         gbc.gridx = 0;
@@ -306,7 +305,7 @@ public class ControlPanel extends JPanel{
 
 
 
-		button = new JButton("      Reset      ");
+		button = new JButton("Reset");
 		// Estilos
 		button.setBackground(Color.black);
 		button.setForeground(Color.white);
